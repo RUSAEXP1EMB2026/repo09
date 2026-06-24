@@ -16,16 +16,19 @@ def get_automation_status():
     """GAS経由でスプレッドシートの「設定」シートから自動化のON/OFFを取得する"""
     print("GASから自動化モードの状態を取得しています...")
     try:
-        # doPostではなく、今回は値をもらうだけなのでrequests.getを使います
-        response = requests.get(GAS_SETTINGS_URL)
+        # GAS側の分岐条件（action=get_status）に合わせてパラメータを追加
+        params = {"action": "get_status"}
+        response = requests.get(GAS_SETTINGS_URL, params=params)
         response.raise_for_status()
         data = response.json()
 
-        if data.get("status") == "success":
-            return data.get("automation_on")
+        # GASからのレスポンス {"automation_on": true/false} に合わせて判定
+        if "automation_on" in data:
+            return data["automation_on"]
         else:
-            print(f"状態取得エラー: {data.get('message')}")
+            print(f"状態取得エラー: {data.get('message', '不明なエラー')}")
             return False  # エラー時は安全のため自動化OFFとして扱う
+
     except Exception as e:
         print(f"GASへの通信に失敗しました: {e}")
         return False  # 通信エラー時も安全のためOFFとして扱う
