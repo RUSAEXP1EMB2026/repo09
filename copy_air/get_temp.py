@@ -4,10 +4,10 @@ import requests
 # 設定情報の入力
 # ==========================================
 # 1. 取得したNature Remoのアクセストークン
-ACCESS_TOKEN = 'ory_at_2sATOvbv4ElIjgDPmA9LV27nz4ya-8V_P0H-HxAtE-g.e3jBIqHSfv1druS2uakToD1viTYg5UEZKkN1nj8oKf0'
+ACCESS_TOKEN = ''
 
-# 2. 先ほど取得したエアコンのID
-APPLIANCE_ID = 'cb3e29a7-8f07-45c3-b3ed-6ac546fae423'
+# 2. エアコンのID
+APPLIANCE_ID = ''
 
 # APIのベースURLと認証ヘッダー
 BASE_URL = 'https://api.nature.global'
