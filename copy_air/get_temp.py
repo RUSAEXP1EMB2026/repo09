@@ -83,11 +83,3 @@ def get_environment_and_ac_state():
 if __name__ == '__main__':
     # 単体テストとして実行
     temp, humidity, state = get_environment_and_ac_state()
-
-    if temp is not None:
-        print("-" * 30)
-        print("後続のプログラム（統計モデル・操作プログラム）へ渡すデータ:")
-        print(f"・温度データ: {temp}")
-        print(f"・湿度データ: {humidity}")
-        print(f"・エアコン辞書: {state}")
-        print("-" * 30)
