@@ -1,4 +1,4 @@
-const REMO_ACCESS_TOKEN = 'ory_at_2sATOvbv4ElIjgDPmA9LV27nz4ya-8V_P0H-HxAtE-g.e3jBIqHSfv1druS2uakToD1viTYg5UEZKkN1nj8oKf0';
+const REMO_ACCESS_TOKEN = '';
 const APPLIANCE_ID = 'cb3e29a7-8f07-45c3-b3ed-6ac546fae423';
 
 /**
