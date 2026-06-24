@@ -1,6 +1,6 @@
 import requests
 
-GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw5RftIai-nGH1XkG_E8LuDDj4RORjzj_VURanZ-GIGxvsJB0ej4aUQptiVJifoVHZO/exec"
+GAS_WEBAPP_URL = https://script.google.com/macros/s/AKfycbwt5W0Ix-2Txgvlh0vIoqCzGrt9J-Hc-h7B2FOa8w0KvlN5lBJb9lCBkJYKOEg8QBYJ/exec"
 
 
 def operation_program(judgment, automation_on, current_ac_state):
