@@ -1,7 +1,7 @@
 import requests
 
 # 取得済みのアクセストークンをここに貼り付けます
-ACCESS_TOKEN = ''
+ACCESS_TOKEN = 'ory_at_2sATOvbv4ElIjgDPmA9LV27nz4ya-8V_P0H-HxAtE-g.e3jBIqHSfv1druS2uakToD1viTYg5UEZKkN1nj8oKf0'
 
 
 def get_aircon_ids():
