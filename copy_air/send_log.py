@@ -36,17 +36,3 @@ def send_log_program(temp, humidity, judgment, action_taken=None, automation_on=
 
     except Exception as e:
         print(f"-> GASへの通信に失敗しました: {e}")
-
-
-# ==========================================
-# テスト実行用のブロック
-# ==========================================
-if __name__ == '__main__':
-    print("=== ログ送信プログラムのテストを開始します ===\n")
-
-    print("【テスト】稼働状況ログの送信")
-    send_log_program(
-        temp=28.5,
-        humidity=60.0,
-        judgment="暑い"
-    )
