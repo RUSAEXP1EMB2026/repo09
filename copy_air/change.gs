@@ -1,5 +1,5 @@
 const REMO_ACCESS_TOKEN = '';
-const APPLIANCE_ID = 'cb3e29a7-8f07-45c3-b3ed-6ac546fae423';
+const APPLIANCE_ID = '';
 
 /**
  * ローカル(Python)やLINE BotからのPOSTリクエストを受け取る窓口 [cite: 23]
