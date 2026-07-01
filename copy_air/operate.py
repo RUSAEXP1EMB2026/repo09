@@ -1,11 +1,11 @@
 import requests
-from send_log import send_log_program  # 追加：ログ送信プログラムを読み込む
+from send_log import send_log_program
 
 GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw5RftIai-nGH1XkG_E8LuDDj4RORjzj_VURanZ-GIGxvsJB0ej4aUQptiVJifoVHZO/exec"
 
 
-# 引数に temp と humidity を追加
 def operation_program(judgment, automation_on, current_ac_state, temp, humidity):
+
     """
     操作プログラム
     """
@@ -21,13 +21,17 @@ def operation_program(judgment, automation_on, current_ac_state, temp, humidity)
                 action_payload = {'operation_mode': 'cool', 'button': ''}
             else:
                 new_temp = current_ac_state['temp'] - 1
-                action_payload = {'temperature': str(new_temp)}
+                temp_str = str(int(new_temp)) if new_temp % 1 == 0 else str(new_temp)
+                action_payload = {'temperature': temp_str}
+
         elif judgment == "寒い":
             new_temp = current_ac_state['temp'] + 1
             if new_temp > 28:
                 action_payload = {'button': 'power-off'}
             else:
-                action_payload = {'temperature': str(new_temp)}
+                temp_str = str(int(new_temp)) if new_temp % 1 == 0 else str(new_temp)
+                action_payload = {'temperature': temp_str}
+
         elif judgment == "快適":
             print("「快適」判定のため、現在の稼働状態および設定温度を維持します。")
             action_payload = None
@@ -41,6 +45,5 @@ def operation_program(judgment, automation_on, current_ac_state, temp, humidity)
             except Exception as e:
                 print(f"GASへの送信に失敗しました: {e}")
 
-    # 追加：本物のログ送信プログラムへ終了通知とデータを渡す
     print("-> ログ送信プログラムへデータを渡します。")
     send_log_program(temp, humidity, judgment)
