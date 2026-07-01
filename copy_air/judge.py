@@ -5,7 +5,6 @@ from sklearn.preprocessing import MinMaxScaler
 # ==========================================
 # 設定: スプレッドシートのURL
 # ==========================================
-# 教師データが入っているスプレッドシートのURLに書き換えてください
 SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1YmnRv4Tb193kPnGcdSPfs1BXbj3VPmeRM5Q7PowQ680/edit?gid=973525101#gid=973525101"
 
 
@@ -24,7 +23,7 @@ def statistical_model(current_temp, current_hum):
         # データを取得
         df = pd.read_csv(csv_url, header=0)
 
-        # データが1件もない場合の安全対策
+        # データが1件もない場合
         if len(df) < 1:
             print("【警告】教師データが空です。安全のため「快適」判定とします。")
             return "快適"
@@ -57,10 +56,3 @@ def statistical_model(current_temp, current_hum):
         print(f"【統計モデル エラー】データの読み込みや判定に失敗しました: {e}")
         # システムを止めないための安全策として「快適（現状維持）」を返す
         return "快適"
-
-
-# 単体テスト用ブロック
-if __name__ == '__main__':
-    print("単体テストを実行します...")
-    result = statistical_model(28.0, 65.0)
-    print(f"テスト判定結果: {result}")
