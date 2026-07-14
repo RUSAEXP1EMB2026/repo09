@@ -1,7 +1,7 @@
 import requests
 
-
-ACCESS_TOKEN = ''
+# 取得済みのアクセストークンをここに貼り付けます
+ACCESS_TOKEN = 'REMO_ACCESS_TOKEN'
 
 
 def get_aircon_ids():
@@ -13,12 +13,12 @@ def get_aircon_ids():
     try:
         print("Nature Remoから家電データを取得中...\n")
         response = requests.get(url, headers=headers)
-        response.raise_for_status()
+        response.raise_for_status()  # エラーがあればここでストップ
 
         appliances = response.json()
         ac_found = False
 
-        print("登録されているエアコン一覧")
+        print("▼ 登録されているエアコン一覧 ▼")
         print("-" * 40)
 
         for appliance in appliances:

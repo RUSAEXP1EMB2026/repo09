@@ -4,7 +4,7 @@ import requests
 # 設定情報の入力
 # ==========================================
 # デプロイしたGAS（スプレッドシート書き込みプログラム）のWebアプリURLを設定します
-GAS_LOG_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwt5W0Ix-2Txgvlh0vIoqCzGrt9J-Hc-h7B2FOa8w0KvlN5lBJb9lCBkJYKOEg8QBYJ/exec"
+GAS_LOG_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxngl9Y0rj3pWmY7oW0oWivVV8jzqPB9aIkXriiYmVgD0K6WRKohROsl5SxujtpYCy6/exec"
 
 
 def send_log_program(temp, humidity, judgment, action_taken=None, automation_on=None):
@@ -36,3 +36,17 @@ def send_log_program(temp, humidity, judgment, action_taken=None, automation_on=
 
     except Exception as e:
         print(f"-> GASへの通信に失敗しました: {e}")
+
+
+# ==========================================
+# テスト実行用のブロック
+# ==========================================
+if __name__ == '__main__':
+    print("=== ログ送信プログラムのテストを開始します ===\n")
+
+    print("【テスト】稼働状況ログの送信")
+    send_log_program(
+        temp=28.5,
+        humidity=60.0,
+        judgment="暑い"
+    )

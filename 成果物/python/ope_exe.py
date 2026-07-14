@@ -1,5 +1,6 @@
 import time
 import requests
+
 from datetime import datetime
 
 
@@ -8,8 +9,7 @@ from operate import operation_program
 from judge import statistical_model  # 追加：本物の統計モデルを読み込む
 
 # スプレッドシート（GAS）のWebアプリURL
-GAS_SETTINGS_URL = "https://script.google.com/macros/s/AKfycbwt5W0Ix-2Txgvlh0vIoqCzGrt9J-Hc-h7B2FOa8w0KvlN5lBJb9lCBkJYKOEg8QBYJ/exec"
-
+GAS_SETTINGS_URL = "https://script.google.com/macros/s/AKfycbxngl9Y0rj3pWmY7oW0oWivVV8jzqPB9aIkXriiYmVgD0K6WRKohROsl5SxujtpYCy6/exec"
 def get_automation_status():
     """GAS経由でスプレッドシートの「設定」シートから自動化のON/OFFを取得する"""
     print("GASから自動化モードの状態を取得しています...")
@@ -31,9 +31,9 @@ def get_automation_status():
 
 # ==========================================
 # 実行管理プログラム本体
-# ==========================================
+# =========================================
 def execution_management_program():
-    INTERVAL_SECONDS = 900
+    INTERVAL_SECONDS = 30
 
     print("=== 実行管理プログラムを起動しました ===")
     print(f"実行間隔: {INTERVAL_SECONDS / 60}分\n")

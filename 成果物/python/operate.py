@@ -1,7 +1,7 @@
 import requests
 from send_log import send_log_program
 
-GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw5RftIai-nGH1XkG_E8LuDDj4RORjzj_VURanZ-GIGxvsJB0ej4aUQptiVJifoVHZO/exec"
+GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxngl9Y0rj3pWmY7oW0oWivVV8jzqPB9aIkXriiYmVgD0K6WRKohROsl5SxujtpYCy6/exec"
 
 
 def operation_program(judgment, automation_on, current_ac_state, temp, humidity):

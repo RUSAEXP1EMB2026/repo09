@@ -3,11 +3,11 @@ import requests
 # ==========================================
 # 設定情報の入力
 # ==========================================
-#取得したNature Remoのアクセストークン
-ACCESS_TOKEN = ''
+# 1. 取得したNature Remoのアクセストークン
+ACCESS_TOKEN = 'REMO_ACCESS_TOKEN'
 
-#エアコンのID
-APPLIANCE_ID = ''
+# 2. 先ほど取得したエアコンのID
+APPLIANCE_ID = 'AIR_CON_ID'
 
 # APIのベースURLと認証ヘッダー
 BASE_URL = 'https://api.nature.global'
@@ -75,3 +75,19 @@ def get_environment_and_ac_state():
     except Exception as e:
         print(f"データ取得中にエラーが発生しました: {e}")
         return None, None, None
+
+
+# ==========================================
+# テスト実行用のブロック
+# ==========================================
+if __name__ == '__main__':
+    # 単体テストとして実行
+    temp, humidity, state = get_environment_and_ac_state()
+
+    if temp is not None:
+        print("-" * 30)
+        print("後続のプログラム（統計モデル・操作プログラム）へ渡すデータ:")
+        print(f"・温度データ: {temp}")
+        print(f"・湿度データ: {humidity}")
+        print(f"・エアコン辞書: {state}")
+        print("-" * 30)
